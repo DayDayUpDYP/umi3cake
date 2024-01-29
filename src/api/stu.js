@@ -4,3 +4,8 @@ export const stuGet = () => {
         method:"GET"
     })
 }
+export const stuDel = (idx) => {
+    return request(`/category/stu?id=${idx}`,{
+        method:"DELETE"
+    })
+}

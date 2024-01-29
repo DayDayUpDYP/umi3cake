@@ -1,9 +1,10 @@
 import React,{useState, useEffect} from 'react';
 import { Space, Table, Tag, Button } from 'antd';
 import type { TableProps } from 'antd';
-import { stuGet } from '@/api/stu';
+import { stuGet,stuDel } from '@/api/stu';
 
 interface DataType {
+  id:string,
   name: string;
   score: number;
   city: string;
@@ -11,6 +12,7 @@ interface DataType {
 }
 
 const columns: TableProps<DataType>['columns'] = [
+  
   {
     title: '姓名',
     dataIndex: 'name',
@@ -38,7 +40,7 @@ const columns: TableProps<DataType>['columns'] = [
     render: (_, record) => (
       <Space size="middle">
         <Button type="primary">编辑</Button>
-        <Button type="primary" danger>删除</Button>
+        <Button type="primary" danger onClick={() => {stuDel(record.id).then()}}>删除</Button>
       </Space>
     ),
   },
