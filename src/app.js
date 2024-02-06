@@ -1,5 +1,7 @@
 // 异步请求相关运行时配置
 
+import {message} from 'antd';
+
 export const request = {
   requestInterceptors: [
         // 直接写一个 function，作为拦截器
@@ -17,11 +19,16 @@ export const request = {
   ],
   responseInterceptors: [
     // 直接写一个 function，作为拦截器
-    (response) =>
+    async(response, options) =>
       {
+        let res = await response.json();
+        if(res.objectId && options.method.toLowerCase() === 'post'){
+          console.log('新增成功');
+          message.success('新增接口请求成功');
+        }
         // 不再需要异步处理读取返回体内容，可直接在data中读出，部分字段可在 config 中找到
         // do something
-        return response
+        return {data:res.results}
       },
   ]
 };

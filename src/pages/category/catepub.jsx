@@ -18,21 +18,19 @@ const tailLayout = {
 };
 
 const CatePub = () => {
-
   const [form] = Form.useForm();
   let {data,loading,run} = useRequest((value)=>{
     console.log('useRequest执行了',value);
-    // return cateAdd(value)
+    return cateAdd(value)
   },{manual:true})  //开启手动执行
 
 
   const onFinish = (values) => {
     run(values)  //手动执行useRequest
     // console.log(values);
-    cateAdd(values).then(res=>{
-      console.log(res);
-    })
-    
+    // cateAdd(values).then(res=>{
+    //   console.log(res);
+    // })
   };
   const onReset = () => {
     form.resetFields();
