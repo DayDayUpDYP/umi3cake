@@ -15,11 +15,11 @@ export default [
       routes:[
         {
           path:'/cate/list',
-          component:'@/pages/category/list',
+          component:'@/pages/category/catelist',
           name:'分类列表'
         },{
           path:'/cate/pub',
-          component:'@/pages/category/pub',
+          component:'@/pages/category/catepub',
           name:'分类发布'
         }
       ]
