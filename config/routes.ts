@@ -23,5 +23,20 @@ export default [
           name:'分类发布'
         }
       ]
+    },
+    {
+      path:'/banner',
+      name:'轮播管理',
+      routes:[
+        {
+          path:'/banner/bannerlist',
+          component:'@/pages/banner/bannerlist',
+          name:'轮播列表'
+        },{
+          path:'/banner/bannerpub',
+          component:'@/pages/banner/bannerpub',
+          name:'轮播发布'
+        }
+      ]
     }
   ]

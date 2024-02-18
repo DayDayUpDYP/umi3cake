@@ -1,7 +1,7 @@
 // 异步请求相关运行时配置
 
 import {message} from 'antd';
-
+import './utils/init-leancloud-sdk' //初始化 leancloud 文件上传服务
 export const request = {
   requestInterceptors: [
         // 直接写一个 function，作为拦截器
