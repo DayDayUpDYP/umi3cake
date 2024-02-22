@@ -1,17 +1,18 @@
-import React from 'react'
-import { Table,Space,Button,Image } from 'antd';
-// import {cateGet} from '@/api/cake'
-import {useRequest,history,useAccess} from 'umi'
+import React from 'react';
+import { Table, Space, Button, Image } from 'antd';
+import { cateGet } from '@/api/cake';
+// import {useRequest,history,useAccess} from 'umi'
+import { useRequest, history } from 'umi';
 
 export default function CateList() {
-  let access = useAccess()
-  console.log('banner列表权限信息',access);
+  // let access = useAccess()
+  // console.log('banner列表权限信息',access);
   const columns = [
     {
       title: 'ID',
       dataIndex: 'objectId',
       key: 'objectId',
-      render: text => <a>{text}</a>,
+      render: (text) => <a>{text}</a>,
     },
     {
       title: '分类名称',
@@ -21,28 +22,35 @@ export default function CateList() {
     {
       title: '操作',
       key: 'action',
-      render: (text, record,index) => (
+      render: (text, record, index) => (
         <Space size="middle">
-          <Button type="primary" size='small' disabled={!access.isRoot} onClick={()=>{
-            history.push({
-              pathname:'/banner/edit',
-              query:record
-            })
-          }}>编辑</Button>
-          <Button type="primary" size='small' danger>删除</Button>
+          <Button
+            type="primary"
+            size="small"
+            onClick={() => {
+              history.push({
+                pathname: '/banner/edit',
+                query: record,
+              });
+            }}
+          >
+            编辑
+          </Button>
+          <Button type="primary" size="small" danger>
+            删除
+          </Button>
         </Space>
       ),
     },
   ];
-  
-  // const {data,loading,error} = useRequest(cateGet)
+
+  const { data, loading, error } = useRequest(cateGet);
   return (
-    <Table 
-      loading={loading} 
-      columns={columns} 
-      dataSource={data} 
+    <Table
+      loading={loading}
+      columns={columns}
+      dataSource={data}
       rowKey="objectId"
     />
-  )
+  );
 }
-

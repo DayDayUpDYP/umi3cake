@@ -51,4 +51,21 @@ export default [
       },
     ],
   },
+  {
+    path: '/goods',
+    name: '商品管理',
+    icon: 'SmileOutlined',
+    routes: [
+      {
+        path: '/goods/goodslist',
+        component: '@/pages/goods/goodslist',
+        name: '商品列表',
+      },
+      {
+        path: '/goods/goodspub',
+        component: '@/pages/goods/goodspub',
+        name: '商品发布',
+      },
+    ],
+  },
 ];
