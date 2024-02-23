@@ -7,3 +7,17 @@ export const goodsAdd = (goodsObj) => {
     data: goodsObj,
   });
 };
+export const goodsExchange = (cakelist, values) => {
+  let batchObj = { requests: [] };
+  cakelist.forEach((item) => {
+    batchObj.requests.push({
+      method: 'POST',
+      path: '/1.1/classes/cakeGoods',
+      body: { ...item, ...values },
+    });
+  });
+  return request('/batch', {
+    method: 'POST',
+    data: batchObj,
+  });
+};

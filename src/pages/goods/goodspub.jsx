@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { cateGet } from '@/api/cake';
-import { goodsAdd } from '@/api/goods';
+import { goodsAdd, goodsExchange } from '@/api/goods';
 import { Form, Input, Button, Spin, Select } from 'antd';
 import { useRequest } from 'umi';
 import Cloud from 'leancloud-storage';
@@ -93,12 +93,12 @@ const GoodsPub = () => {
     console.log(values);
     // 拿到目标平台的数据包
     let url =
-      'http://localhost:3000/cake/api/0434b49d1ac28f9d?cityId=110&page=1&bid=5';
+      'http://localhost:3000/cake/api/0434b49d1ac28f9d?cityId=110&page=2&bid=5';
     axios({
       url,
       method: 'get',
       headers: {
-        'access-token': '83571eadee673f9572f4d1fb3d51325b', //如果token失效，可以重新从目标网站接口获取新的token
+        'access-token': '0f0eba9c9171ce567434c295b2477fd8', //如果token失效，可以重新从目标网站接口获取新的token
         version: 'v1.0',
       },
     }).then((res) => {
