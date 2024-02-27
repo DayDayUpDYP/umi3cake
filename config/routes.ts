@@ -1,5 +1,12 @@
 export default [
   {
+    path: '/login',
+    component: '@/pages/login/index',
+    name: '登录',
+    layout: false,
+    hideInMenu: true,
+  },
+  {
     path: '/',
     component: '@/pages/index',
     name: '首页',
@@ -65,6 +72,23 @@ export default [
         path: '/goods/goodspub',
         component: '@/pages/goods/goodspub',
         name: '商品发布',
+      },
+    ],
+  },
+  {
+    path: '/system',
+    name: '系统设置',
+    icon: 'SettingOutlined',
+    routes: [
+      {
+        path: '/system/role',
+        component: '@/pages/system/roleManager',
+        name: '角色管理',
+      },
+      {
+        path: '/system/user',
+        component: '@/pages/system/userManager',
+        name: '账号管理',
       },
     ],
   },
