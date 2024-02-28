@@ -50,8 +50,8 @@ const Login = () => {
   }, [data]);
 
   let initData = {
-    username: '大BOSS',
-    password: '123',
+    username: 'root',
+    password: 'root',
     remember,
   };
 

@@ -21,4 +21,5 @@ export default defineConfig({
   // route 单独放一个文件夹
   routes,
   fastRefresh: {},
+  externals: { AMap: 'window.AMap' },
 });

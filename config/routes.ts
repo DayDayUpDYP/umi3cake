@@ -60,6 +60,7 @@ export default [
         path: '/banner/banneredit',
         component: '@/pages/banner/banneredit',
         name: '轮播编辑',
+        access: 'isWorker',
         hideInMenu: true, //侧边菜单不显示
       },
     ],
@@ -99,5 +100,11 @@ export default [
         name: '账号管理',
       },
     ],
+  },
+  {
+    path: '/area',
+    component: '@/pages/area/index',
+    name: ' 配送地图',
+    icon: 'HeatMapOutlined',
   },
 ];
