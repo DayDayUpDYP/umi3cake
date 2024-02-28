@@ -42,7 +42,7 @@ export const request = {
   ],
 };
 
-// 初始化某些全局数据的运行时配置
+// 设置后可以不到登录页 直接登录网站 返回值将成为全局初始状态
 export async function getInitialState() {
   let userState = {
     isLogin: false,

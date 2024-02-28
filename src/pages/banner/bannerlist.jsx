@@ -1,13 +1,15 @@
 import React from 'react';
 import { Table, Space, Button, Image } from 'antd';
 import { bannerGet, bannerDelete } from '@/api/banner';
-import { useRequest, history } from 'umi';
+import { useRequest, history, useAccess } from 'umi';
 
 export default function BannerList() {
   // 删除接口调用和 loading
   // let {dataa,loading,run} = useRequest((objectId) =>{
   //   return bannerDelete(objectId)
   // },{manual:true})
+  const access = useAccess();
+  console.log('banner 权限信息', access);
   const columns = [
     {
       title: 'ID',
@@ -44,6 +46,7 @@ export default function BannerList() {
           <Button
             type="primary"
             size="small"
+            disabled={!access.isRoot}
             onClick={() => {
               history.push({
                 pathname: '/banner/banneredit',

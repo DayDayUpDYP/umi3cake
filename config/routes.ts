@@ -22,16 +22,19 @@ export default [
     path: '/cate',
     name: '分类管理',
     icon: 'WindowsOutlined',
+    access: 'isAdmin',
     routes: [
       {
         path: '/cate/list',
         component: '@/pages/category/catelist',
         name: '分类列表',
+        access: 'isAdmin',
       },
       {
         path: '/cate/pub',
         component: '@/pages/category/catepub',
         name: '分类发布',
+        access: 'isRoot',
       },
     ],
   },
@@ -39,16 +42,19 @@ export default [
     path: '/banner',
     name: '轮播管理',
     icon: 'SmileOutlined',
+    access: 'isWorker',
     routes: [
       {
         path: '/banner/bannerlist',
         component: '@/pages/banner/bannerlist',
         name: '轮播列表',
+        access: 'isWorker',
       },
       {
         path: '/banner/bannerpub',
         component: '@/pages/banner/bannerpub',
         name: '轮播发布',
+        access: 'isAdmin',
       },
       {
         path: '/banner/banneredit',
@@ -62,6 +68,7 @@ export default [
     path: '/goods',
     name: '商品管理',
     icon: 'SmileOutlined',
+    access: 'isAdmin',
     routes: [
       {
         path: '/goods/goodslist',
@@ -79,6 +86,7 @@ export default [
     path: '/system',
     name: '系统设置',
     icon: 'SettingOutlined',
+    access: 'isRoot',
     routes: [
       {
         path: '/system/role',
